@@ -1,8 +1,74 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Hello World</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomeeed — learning by taking things apart</title>
+  <meta name="description" content="Nomeeed's digital workshop: a CS student learning cybersecurity, building things, and breaking them on purpose.">
+
+  <!-- Runs immediately, BEFORE the page paints, so the intro never flashes
+       for people who've already seen it or who prefer reduced motion. -->
+  <script>
+    const seen = sessionStorage.getItem("introSeen");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (seen || reduceMotion) document.documentElement.classList.add("no-intro");
+  </script>
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <script src="js/intro.js" defer></script>
 </head>
 <body>
-    <h2>My first ever portfolio website yayyy!!</h2>
+
+  <!-- OPENING SCENE -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <p class="intro__name">
+      Nom<span class="intro__stretch">eeeeeeee</span>eed
+    </p>
+    <button class="intro__skip" id="intro-skip" type="button">Skip</button>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html">Nomeeed</a>
+    <nav aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="lab.html">Security Lab</a></li>
+        <li><a href="journey.html">Journey</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Computer Science student · still becoming</p>
+
+      <h1 id="hero-title">
+        I'm learning how things work by <mark>taking them apart.</mark>
+      </h1>
+
+      <p class="hero__lead">
+        Hi, I'm Nomeeed. I study computer science and I'm into software
+        engineering, cybersecurity, and systems. I like understanding how
+        things work, especially when I can break them first (legally, in labs).
+      </p>
+
+      <ul class="hero__links">
+        <li><a class="button" href="https://github.com/Nomeed21">GitHub</a></li>
+        <li><a class="button button--ghost" href="assets/resume.pdf">Resume</a></li>
+        <li><a class="button button--ghost" href="mailto:mayonurmid@gmail.com">Contact</a></li>
+      </ul>
+
+      <p class="now">
+        <span class="now__label">Right now</span>
+        Sharpening my cybersecurity skills by working through
+        <a href="https://ctflearn.com">CTFLearn</a> challenges, as many as I can.
+      </p>
+    </section>
+  </main>
+
 </body>
 </html>
